@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LINE 表單</title>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <h2>代理資料登記</h2>
+  <form id="form">
+    <input type="text" name="name" placeholder="姓名" required />
+    <textarea name="message" placeholder="留言" required></textarea>
+    <button type="submit">送出</button>
+  </form>
+
+  <script>
+    let userId = '';
+
+    async function initLiff() {
+      await liff.init({ liffId: 'YOUR_LIFF_ID' });
+      const profile = await liff.getProfile();
+      userId = profile.userId;
+    }
+
+    initLiff();
+
+    document.getElementById('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const payload = {
+        userId,
+        name: form.name.value,
+        message: form.message.value,
+      };
+
+      await fetch('https://n8n.yourdomain.com/webhook/form-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      alert('送出成功！');
+    });
+  </script>
+</body>
+</html>
