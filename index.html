@@ -27,7 +27,7 @@
     <input type="text" name="name" id="name" required />
 
     <label for="phone">電話</label>
-    <input type="text" name="phone" id="phone" />
+    <input type="text" name="phone" id="phone" required />
 
     <label for="email">電子郵件</label>
     <input type="email" name="email" id="email" required />
@@ -42,17 +42,7 @@
       <option value="三級">三級</option>
     </select>
 
-    <label for="superior">直屬上級層級</label>
-    <select name="superior" id="superior" required>
-      <option value="">請選擇</option>
-      <option value="戰略">戰略</option>
-      <option value="皇家">皇家</option>
-      <option value="一級">一級</option>
-      <option value="二級">二級</option>
-      <option value="三級">三級</option>
-    </select>
-
-    <label for="team">所屬團隊</label>
+       <label for="team">所屬團隊</label>
     <select name="team" id="team" required>
       <option value="">請選擇</option>
       <option value="百萬美">百萬美</option>
@@ -63,8 +53,18 @@
       <option value="香港 GLOW TEAM">香港 GLOW TEAM</option>
     </select>
 
-    <label for="message">留言</label>
+    <label for="message">授權代碼</label>
     <textarea name="message" id="message" required></textarea>
+    
+    <label for="superior">直屬上級層級</label>
+    <select name="superior" id="superior" required>
+      <option value="">請選擇</option>
+      <option value="戰略">戰略</option>
+      <option value="皇家">皇家</option>
+      <option value="一級">一級</option>
+      <option value="二級">二級</option>
+      <option value="三級">三級</option>
+    </select>
 
     <button type="submit" class="submit-btn">送出</button>
     <button type="button" class="close-btn">關閉</button>
@@ -135,7 +135,7 @@
         });
 
         const phoneValue = phoneField.value.trim();
-        if (phoneValue && !/^[0-9]+$/.test(phoneValue)) {
+        if (!/^[0-9]+$/.test(phoneValue)) {
           phoneField.style.borderColor = "#e74c3c";
           showMessage("請輸入有效的電話號碼（僅限數字）", "error");
           isValid = false;
@@ -143,7 +143,7 @@
 
         const emailValue = emailField.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailValue && !emailPattern.test(emailValue)) {
+        if (!emailPattern.test(emailValue)) {
           emailField.style.borderColor = "#e74c3c";
           showMessage("請輸入有效的電子郵件地址", "error");
           isValid = false;
@@ -155,7 +155,7 @@
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         if (!validateForm()) {
-          showMessage("請填寫所有必填欄位並確保格式正確", "error");
+          showMessage("請填寫所有欄位並確保格式正確", "error");
           return;
         }
 
