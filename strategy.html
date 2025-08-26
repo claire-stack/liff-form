@@ -141,7 +141,7 @@
     <button type="button" class="close-btn">關閉</button>
   </form>
 
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   if (!navigator.userAgent.includes("Line")) {
     alert("請使用 LINE App 開啟此頁面，以使用完整功能");
@@ -149,6 +149,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   initLiffAndBindForm();
 });
+
+function validateForm() {
+  const form = document.getElementById("orderForm");
+  let isValid = true;
+  const phoneField = document.getElementById("phone");
+  const emailField = document.getElementById("email");
+  const requiredFields = form.querySelectorAll("[required]");
+
+  requiredFields.forEach(field => {
+    if (!field.value.trim()) {
+      field.style.borderColor = "#e74c3c";
+      isValid = false;
+    } else {
+      field.style.borderColor = "#27ae60";
+    }
+  });
+
+  const phoneValue = phoneField.value.trim();
+  if (!/^[0-9]+$/.test(phoneValue)) {
+    phoneField.style.borderColor = "#e74c3c";
+    showMessage("請輸入有效的電話號碼（僅限數字）", "error");
+    isValid = false;
+  }
+
+  const emailValue = emailField.value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(emailValue)) {
+    emailField.style.borderColor = "#e74c3c";
+    showMessage("請輸入有效的電子郵件地址", "error");
+    isValid = false;
+  }
+
+  return isValid;
+}
 
 async function initLiffAndBindForm() {
   const form = document.getElementById("orderForm");
@@ -173,37 +207,6 @@ async function initLiffAndBindForm() {
     return;
   }
 
-function validateForm() {
-    let isValid = true;
-    const phoneField = document.getElementById("phone");
-    const emailField = document.getElementById("email");
-    const requiredFields = form.querySelectorAll("[required]");
-    requiredFields.forEach(field => {
-      if (!field.value.trim()) {
-        field.style.borderColor = "#e74c3c"; isValid = false;
-      } else {
-        field.style.borderColor = "#27ae60";
-      }
-    });
-
-    const phoneValue = phoneField.value.trim();
-    if (!/^[0-9]+$/.test(phoneValue)) {
-      phoneField.style.borderColor = "#e74c3c";
-      showMessage("請輸入有效的電話號碼（僅限數字）", "error");
-      isValid = false;
-    }
-
-    const emailValue = emailField.value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(emailValue)) {
-      emailField.style.borderColor = "#e74c3c";
-      showMessage("請輸入有效的電子郵件地址", "error");
-      isValid = false;
-    }
-
-    return isValid;
-  }
-}
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
     if (!validateForm()) {
@@ -249,18 +252,18 @@ function validateForm() {
   closeBtn.addEventListener("click", () => {
     if (confirm("確定要關閉表單嗎？未保存的資料將會遺失。")) window.close();
   });
+}
 
-  function showMessage(message, type = "info") {
-    const existing = document.querySelector(".message");
-    if (existing) existing.remove();
-    const msg = document.createElement("div");
-    msg.className = `message ${type}`;
-    msg.textContent = message;
-    msg.style.backgroundColor = type === "error" ? "#e74c3c" : "#27ae60";
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 3000);
-  }
-
+function showMessage(message, type = "info") {
+  const existing = document.querySelector(".message");
+  if (existing) existing.remove();
+  const msg = document.createElement("div");
+  msg.className = `message ${type}`;
+  msg.textContent = message;
+  msg.style.backgroundColor = type === "error" ? "#e74c3c" : "#27ae60";
+  document.body.appendChild(msg);
+  setTimeout(() => msg.remove(), 3000);
+}
 </script>
 
 </body>
