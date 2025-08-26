@@ -1,0 +1,30 @@
+<label for="phone">電話<span style="color:red">*</span></label>
+<input type="text" name="phone" id="phone" required />
+
+<label for="team">團隊名稱<span style="color:red">*</span></label>
+<select name="team" id="team" required>
+  <option value="">請選擇</option>
+  <option value="百萬美">百萬美</option>
+  <option value="億元富娜">億元富娜</option>
+  <option value="戰鬥印鈔機">戰鬥印鈔機</option>
+  <option value="女力崛起">女力崛起</option>
+  <option value="美金團隊">美金團隊</option>
+  <option value="香港 GLOW TEAM">香港 GLOW TEAM</option>
+</select>
+
+<label for="name">姓名<span style="color:red">*</span></label>
+<input type="text" name="name" id="name" required />
+
+<label for="email">電子郵件<span style="color:red">*</span></label>
+<input type="email" name="email" id="email" required />
+
+<h3>天天酵母鋅</h3>
+
+<img src="https://example.com/zinc.jpg" width="200" alt="Zinc 商品圖片" />
+
+<label>價格：<strong>$250</strong></label>
+<input type="hidden" name="product1_price" value="250" />
+
+<label>數量<span style="color:red">*</span></label>
+<input type="number" name="product1_qty" required min="1" />
+
