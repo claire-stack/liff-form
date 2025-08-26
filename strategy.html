@@ -26,6 +26,17 @@
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
       padding: 12px 24px; border-radius: 8px; color: white; font-weight: 500;
       z-index: 1000;
+    .qty-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    }
+    .qty-row input {
+      width: 100px;
+    }
+
     }
   </style>
 </head>
@@ -54,13 +65,15 @@
 
     <!-- 商品 1 -->
     <div class="product-card">
-      <img src="https://drive.google.com/uc?export=view&id=1nnAMFOaANEWlqFftOqzAZkosU_XUXCJq" alt="Zinc 鋅補充膠囊" />
+      <img src="https://drive.google.com/uc?export=view&id=1nnAMFOaANEWlqFftOqzAZkosU_XUXCJq" alt="產品圖片" />
       <h4> 天天酵母鋅</h4>
       <p class="price">價格：<strong>$250</strong></p>
-      <input type="hidden" name="product1_name" value="Zinc 鋅補充膠囊" />
-      <input type="hidden" name="product1_price" value="250" />
-      <label for="product1_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="product1_qty" id="product1_qty" required min="1" />
+      <input type="hidden" name="Zinc_name" value="Zinc" />
+      <input type="hidden" name="Zinc_price" value="250" />
+      <div class="qty-row">
+      <label for="Zinc_qty">數量<span style="color:red">*</span></label>
+      <input type="number" name="Zinc_qty" id="Zinc_qty" required/>
+      </>
     </div>
 
     <!-- 商品 2~4 可複製上方結構並修改名稱、價格、圖片 -->
