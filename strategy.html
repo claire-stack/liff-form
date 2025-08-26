@@ -13,17 +13,32 @@
       font-size: 16px; border: 1px solid #ccc; border-radius: 6px;
     }
     .product-card {
-      border: 1px solid #ddd; padding: 16px; border-radius: 10px;
-      margin-bottom: 24px; text-align: center; background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      max-width: 320px;
-      margin: 0 auto 24px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 480px; /* 原本是 320px，現在更寬敞 */
+    margin: 0 auto 32px;
+    text-align: center;
     }
-    .product-card img {
-      max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;
+    
+    .product-card h4 {
+      font-size: 20px;
+      margin: 12px 0;
+      color: #2c3e50;
     }
-    .product-card h4 { margin: 8px 0; font-size: 18px; color: #333; }
-    .product-card .price { font-size: 16px; color: #e67e22; margin-bottom: 12px; }
+    .product-card .price {
+      font-size: 18px;
+      color: #e67e22;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .product-card {
+        max-width: 600px;
+      }
+    }
+
     .message {
       position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
       padding: 12px 24px; border-radius: 8px; color: white; font-weight: 500;
@@ -73,7 +88,7 @@
       <input type="hidden" name="Zinc_price" value="250" />
       <div class="qty-row">
       <label for="Zinc_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="Zinc_qty" id="Zinc_qty" required/>
+      <input type="number" name="Zinc_qty" id="Zinc_qty" required min="0" step="1"/>
       </div>
     </div>
 
