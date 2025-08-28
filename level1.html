@@ -68,7 +68,7 @@
 <body>
   <h2>商品訂購表單</h2>
   <form id="orderForm">
-    <label for="phone">電話<span style="color:red">*</span></label>
+<!--     <label for="phone">電話<span style="color:red">*</span></label>
     <input type="text" name="phone" id="phone" required />
 
     <label for="team">團隊名稱<span style="color:red">*</span></label>
@@ -87,7 +87,7 @@
 
     <label for="email">電子郵件<span style="color:red">*</span></label>
     <input type="email" name="email" id="email" required />
-
+ -->
     <!-- 商品 1 -->
     <div class="product-card">
       <img src="https://claire-stack.github.io/liff-form/酵母.png" alt="商品圖片" />
@@ -96,8 +96,8 @@
       <input type="hidden" name="Zinc_name" value="Zinc" />
       <input type="hidden" name="Zinc_price" value="600" />
       <div class="qty-row">
-      <label for="Zinc_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="Zinc_qty" id="Zinc_qty" required min="0" step="1"/>
+      <label for="Zinc_qty">數量</label>
+      <input type="number" name="Zinc_qty" id="Zinc_qty" min="0" step="1"/>
       </div>
     </div>
 
@@ -108,8 +108,8 @@
       <input type="hidden" name="GMILK_name" value="GMILK" />
       <input type="hidden" name="GMILK_price" value="1200" />
       <div class="qty-row">
-      <label for="GMILK_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="GMILK_qty" id="GMILK_qty" required min="0" step="1"/>
+      <label for="GMILK_qty">數量</label>
+      <input type="number" name="GMILK_qty" id="GMILK_qty"  min="0" step="1"/>
       </div>
     </div>
 
@@ -120,8 +120,8 @@
       <input type="hidden" name="purple_name" value="purple" />
       <input type="hidden" name="purple_price" value="1000" />
       <div class="qty-row">
-      <label for="purple_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="purple_qty" id="purple_qty" required min="0" step="1"/>
+      <label for="purple_qty">數量</label>
+      <input type="number" name="purple_qty" id="purple_qty" min="0" step="1"/>
       </div>
     </div>
 
@@ -132,8 +132,8 @@
       <input type="hidden" name="turmeric_name" value="turmeric" />
       <input type="hidden" name="turmeric_price" value="1100" />
       <div class="qty-row">
-      <label for="turmeric_qty">數量<span style="color:red">*</span></label>
-      <input type="number" name="turmeric_qty" id="turmeric_qty" required min="0" step="1"/>
+      <label for="turmeric_qty">數量</label>
+      <input type="number" name="turmeric_qty" id="turmeric_qty" min="0" step="1"/>
       </div>
     </div>
 
@@ -153,34 +153,43 @@ document.addEventListener("DOMContentLoaded", function () {
 function validateForm() {
   const form = document.getElementById("orderForm");
   let isValid = true;
-  const phoneField = document.getElementById("phone");
-  const emailField = document.getElementById("email");
-  const requiredFields = form.querySelectorAll("[required]");
+  // const phoneField = document.getElementById("phone");
+  // const emailField = document.getElementById("email");
+  // const requiredFields = form.querySelectorAll("[required]");
 
-  requiredFields.forEach(field => {
-    if (!field.value.trim()) {
-      field.style.borderColor = "#e74c3c";
-      isValid = false;
-    } else {
-      field.style.borderColor = "#27ae60";
-    }
-  });
+  // requiredFields.forEach(field => {
+  //   if (!field.value.trim()) {
+  //     field.style.borderColor = "#e74c3c";
+  //     isValid = false;
+  //   } else {
+  //     field.style.borderColor = "#27ae60";
+  //   }
+  // });
 
-  const phoneValue = phoneField.value.trim();
-  if (!/^[0-9]+$/.test(phoneValue)) {
-    phoneField.style.borderColor = "#e74c3c";
-    showMessage("請輸入有效的電話號碼（僅限數字）", "error");
+  // const phoneValue = phoneField.value.trim();
+  // if (!/^[0-9]+$/.test(phoneValue)) {
+  //   phoneField.style.borderColor = "#e74c3c";
+  //   showMessage("請輸入有效的電話號碼（僅限數字）", "error");
+  //   isValid = false;
+  // }
+
+  // const emailValue = emailField.value.trim();
+  // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // if (!emailPattern.test(emailValue)) {
+  //   emailField.style.borderColor = "#e74c3c";
+  //   showMessage("請輸入有效的電子郵件地址", "error");
+  //   isValid = false;
+  // }
+
+  const qtyFields = form.querySelectorAll('input[type="number"]');
+  qtyFields.forEach(field => {
+  const val = field.value.trim();
+  if (val !== "" && (isNaN(val) || Number(val) < 0)) {
+    field.style.borderColor = "#e74c3c";
     isValid = false;
   }
-
-  const emailValue = emailField.value.trim();
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(emailValue)) {
-    emailField.style.borderColor = "#e74c3c";
-    showMessage("請輸入有效的電子郵件地址", "error");
-    isValid = false;
-  }
-
+});
+  
   return isValid;
 }
 
