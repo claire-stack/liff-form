@@ -154,33 +154,43 @@ document.addEventListener("DOMContentLoaded", function () {
 function validateForm() {
   const form = document.getElementById("orderForm");
   let isValid = true;
-  const phoneField = document.getElementById("phone");
-  const emailField = document.getElementById("email");
-  const requiredFields = form.querySelectorAll("[required]");
+  // const phoneField = document.getElementById("phone");
+  // const emailField = document.getElementById("email");
+  // const requiredFields = form.querySelectorAll("[required]");
 
-  requiredFields.forEach(field => {
-    if (!field.value.trim()) {
-      field.style.borderColor = "#e74c3c";
-      isValid = false;
-    } else {
-      field.style.borderColor = "#27ae60";
-    }
-  });
+  // requiredFields.forEach(field => {
+  //   if (!field.value.trim()) {
+  //     field.style.borderColor = "#e74c3c";
+  //     isValid = false;
+  //   } else {
+  //     field.style.borderColor = "#27ae60";
+  //   }
+  // });
 
-  const phoneValue = phoneField.value.trim();
-  if (!/^[0-9]+$/.test(phoneValue)) {
-    phoneField.style.borderColor = "#e74c3c";
-    showMessage("請輸入有效的電話號碼（僅限數字）", "error");
+  // const phoneValue = phoneField.value.trim();
+  // if (!/^[0-9]+$/.test(phoneValue)) {
+  //   phoneField.style.borderColor = "#e74c3c";
+  //   showMessage("請輸入有效的電話號碼（僅限數字）", "error");
+  //   isValid = false;
+  // }
+
+  // const emailValue = emailField.value.trim();
+  // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // if (!emailPattern.test(emailValue)) {
+  //   emailField.style.borderColor = "#e74c3c";
+  //   showMessage("請輸入有效的電子郵件地址", "error");
+  //   isValid = false;
+  // }
+
+  const qtyFields = form.querySelectorAll('input[type="number"]');
+  qtyFields.forEach(field => {
+  const val = field.value.trim();
+  if (val !== "" && (isNaN(val) || Number(val) < 0)) {
+    field.style.borderColor = "#e74c3c";
     isValid = false;
   }
+});
 
-  const emailValue = emailField.value.trim();
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(emailValue)) {
-    emailField.style.borderColor = "#e74c3c";
-    showMessage("請輸入有效的電子郵件地址", "error");
-    isValid = false;
-  }
 
   return isValid;
 }
