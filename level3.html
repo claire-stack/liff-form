@@ -89,7 +89,7 @@
     <input type="email" name="email" id="email" required />
  -->
     <!-- 商品 1 -->
-    <div class="product-card">
+<!--     <div class="product-card">
       <img src="https://claire-stack.github.io/liff-form/酵母.png" alt="商品圖片" />
       <h4> 天天酵母鋅</h4>
       <p class="price">價格：<strong>$420</strong></p>
@@ -136,7 +136,10 @@
       <input type="number" name="turmeric_qty" id="turmeric_qty" min="0" step="1"/>
       </div>
     </div>
+ -->
+<div id="productContainer"></div>
 
+   
     <button type="submit" class="submit-btn">送出</button>
     <button type="button" class="close-btn">關閉</button>
   </form>
@@ -180,6 +183,30 @@ function validateForm() {
   //   showMessage("請輸入有效的電子郵件地址", "error");
   //   isValid = false;
   // }
+const agentLevel = "三級"; // 可根據登入者或表單類型動態設定
+
+fetch("https://raw.githubusercontent.com/claire-stack/liff-form/main/products.json")
+  .then(res => res.json())
+  .then(products => {
+    const container = document.getElementById("productContainer");
+    products.forEach(p => {
+      const price = p.price[agentLevel];
+      const html = `
+        <div class="product-card">
+          <img src="${p.img}" alt="商品圖片" />
+          <h4>${p.name}</h4>
+          <p class="price">價格：<strong>$${price}</strong></p>
+          <input type="hidden" name="${p.key}_name" value="${p.key}" />
+          <input type="hidden" name="${p.key}_price" value="${price}" />
+          <div class="qty-row">
+            <label for="${p.key}_qty">數量</label>
+            <input type="number" name="${p.key}_qty" id="${p.key}_qty" min="0" step="1"/>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML("beforeend", html);
+    });
+  });
 
   const qtyFields = form.querySelectorAll('input[type="number"]');
   qtyFields.forEach(field => {
