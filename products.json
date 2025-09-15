@@ -120,6 +120,198 @@
     }
   },
   {
+    "name": "S1 ON代加倍",
+    "key": "s1",
+    "img": "https://claire-stack.github.io/liff-form/s1代加倍.png",
+    "price": {
+      "三級": 650,
+      "二級": 580,
+      "一級": 510,
+      "皇家": 440,
+      "戰略": 390
+    }
+  },
+ {
+    "name": "S2體減半",
+    "key": "s2",
+    "img": "https://claire-stack.github.io/liff-form/s2體減半.png",
+    "price": {
+      "三級": 860,
+      "二級": 770,
+      "一級": 690,
+      "皇家": 610,
+      "戰略": 530
+    }
+  },
+  {
+    "name": "Pico White NMN 蜂巢飲",
+    "key": "hive",
+    "img": "https://claire-stack.github.io/liff-form/nmn蜂巢飲.png",
+    "price": {
+      "三級": 750,
+      "二級": 630,
+      "一級": 540,
+      "皇家": 450,
+      "戰略": 400
+    }
+  },
+  {
+    "name": "天天綜合維生素礦物質",
+    "key": "multiv",
+    "img": "https://claire-stack.github.io/liff-form/天天綜合礦物質.png",
+    "price": {
+      "三級": 370,
+      "二級": 330,
+      "一級": 290,
+      "皇家": 250,
+      "戰略": 220
+    }
+  },
+  {
+    "name": "天天維生素B群",
+    "key": "vb",
+    "img": "https://claire-stack.github.io/liff-form/天天b群.png",
+    "price": {
+      "三級": 350,
+      "二級": 310,
+      "一級": 270,
+      "皇家": 230,
+      "戰略": 200
+    }
+  },
+  {
+    "name": "天天維生素C",
+    "key": "vc",
+    "img": "https://claire-stack.github.io/liff-form/天天維生素c.png",
+    "price": {
+      "三級": 290,
+      "二級": 260,
+      "一級": 230,
+      "皇家": 200,
+      "戰略": 170
+    }
+  },
+  {
+    "name": "天天鈣鎂D",
+    "key": "mg",
+    "img": "https://claire-stack.github.io/liff-form/天天鈣鎂D.png",
+    "price": {
+      "三級": 350,
+      "二級": 310,
+      "一級": 270,
+      "皇家": 230,
+      "戰略": 200
+    }
+  },
+  {
+    "name": "天天酵母鋅Zn",
+    "key": "zinc",
+    "img": "https://claire-stack.github.io/liff-form/酵母.png",
+    "price": {
+      "三級": 350,
+      "二級": 310,
+      "一級": 270,
+      "皇家": 230,
+      "戰略": 200
+    }
+  },
+  {
+    "name": "億元菌",
+    "key": "probiotic",
+    "img": "https://claire-stack.github.io/liff-form/億元菌.png",
+    "price": {
+      "三級": 890,
+      "二級": 790,
+      "一級": 690,
+      "皇家": 590,
+      "戰略": 520
+    }
+  },
+  {
+    "name": "NMN瑪卡",
+    "key": "maca",
+    "img": "https://claire-stack.github.io/liff-form/nmn馬卡.png",
+    "price": {
+      "三級": 890,
+      "二級": 790,
+      "一級": 690,
+      "皇家": 590,
+      "戰略": 520
+    }
+  },
+  {
+    "name": "Baby Q 膠原粉",
+    "key": "collagen",
+    "img": "https://claire-stack.github.io/liff-form/babyQ.png",
+    "price": {
+      "三級": 690,
+      "二級": 620,
+      "一級": 560,
+      "皇家": 500,
+      "戰略": 450
+    }
+  },
+  {
+    "name": "95%魚油",
+    "key": "dha",
+    "img": "https://claire-stack.github.io/liff-form/魚油.png",
+    "price": {
+      "三級": 950,
+      "二級": 860,
+      "一級": 770,
+      "皇家": 680,
+      "戰略": 600
+    }
+  },
+  {
+    "name": "S3可可飽",
+    "key": "s3",
+    "img": "https://claire-stack.github.io/liff-form/s3可可飽.png",
+    "price": {
+      "三級": 690,
+      "二級": 640,
+      "一級": 600,
+      "皇家": 550,
+      "戰略": 510
+    }
+  },
+  {
+    "name": "EX滴薑黃",
+    "key": "turmeric",
+    "img": "https://claire-stack.github.io/liff-form/滴薑黃.png",
+    "price": {
+      "三級": 990,
+      "二級": 890,
+      "一級": 790,
+      "皇家": 690,
+      "戰略": 590
+    }
+  },
+  {
+    "name": "耐視葉黃素",
+    "key": "lutein",
+    "img": "https://claire-stack.github.io/liff-form/葉黃素.png",
+    "price": {
+      "三級": 900,
+      "二級": 820,
+      "一級": 740,
+      "皇家": 660,
+      "戰略": 580
+    }
+  },
+  {
+    "name": "美容儀專用保濕凝膠",
+    "key": "gel",
+    "img": "https://claire-stack.github.io/liff-form/美容儀專用凝膠.png",
+    "price": {
+      "三級": 150,
+      "二級": 150,
+      "一級": 150,
+      "皇家": 150,
+      "戰略": 150
+    }
+  },
+  {
     "name": "試用包：熬夜霜2.0體驗包",
     "key": "creams",
     "img": "https://claire-stack.github.io/liff-form/試用包：熬夜霜2.0體驗包.png",
