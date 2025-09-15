@@ -146,12 +146,13 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    Products();
+
   if (!navigator.userAgent.includes("Line")) {
     alert("請使用 LINE App 開啟此頁面，以使用完整功能");
     return;
   }
   initLiffAndBindForm();
-  Products();
 });
 
 function validateForm() {
